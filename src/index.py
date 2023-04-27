@@ -10,20 +10,19 @@ components = ["""{
       "jsx": {
       "type": "TouchableOpacity",
       "props": {
-      "activeOpacity": 0.8,
-      "onPress": "handleFacebookLogin",
+      "activeOpacity": 0.8, 
       "style": {
       "backgroundColor": "#3b5998",
       "borderRadius": 10,
-      "paddingVertical": 10,
+      "paddingVertical": 100,
       "paddingHorizontal": 20,
       "flexDirection": "row",
       "alignItems": "center",
       "justifyContent": "center",
       "shadowColor": "#000",
       "shadowOffset": {
-      "width": 0,
-      "height": 1
+      "width": 100,
+      "height": 10  
       },
       "shadowOpacity": 0.3,
       "shadowRadius": 3,
