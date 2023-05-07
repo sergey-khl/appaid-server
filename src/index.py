@@ -7,44 +7,47 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 #app.config['CORS_HEADERS'] = 'application/json'
 
 components = ["""{
-      "jsx": {
-      "type": "TouchableOpacity",
-      "props": {
-      "activeOpacity": 0.8, 
-      "style": {
-      "backgroundColor": "#3b5998",
-      "borderRadius": 10,
-      "paddingVertical": 100,
-      "paddingHorizontal": 20,
-      "flexDirection": "row",
-      "alignItems": "center",
-      "justifyContent": "center",
-      "shadowColor": "#000",
-      "shadowOffset": {
-      "width": 100,
-      "height": 10  
-      },
-      "shadowOpacity": 0.3,
-      "shadowRadius": 3,
-      "elevation": 5
-      }
-      },
-      "children": [
-      {
-      "type": "Text",
-      "props": {
-      "style": {
-      "color": "#fff",
-      "fontSize": 18,
-      "fontWeight": "bold",
-      "marginRight": 10
-      }
-      },
-      "children": "Connect with Facebook"
-      }
-      ]
-      }
-      }"""]
+"jsx": {
+"type": "TouchableOpacity",
+"uid": "1",
+"props": {
+"activeOpacity": 0.8,
+"onPress": "handleFacebookLogin",
+"style": {
+"backgroundColor": "#3b5998",
+"borderRadius": 10,
+"paddingVertical": 10,
+"paddingHorizontal": 20,
+"flexDirection": "row",
+"alignItems": "center",
+"justifyContent": "center",
+"shadowColor": "#000",
+"shadowOffset": {
+"width": 0,
+"height": 1
+},
+"shadowOpacity": 0.3,
+"shadowRadius": 3,
+"elevation": 5
+}
+},
+"children": [
+{
+"type": "Text",
+"uid": "2",
+"props": {
+"style": {
+"color": "#fff",
+"fontSize": 18,
+"fontWeight": "bold",
+"marginRight": 10
+}
+},
+"children": "Connect with Facebook"
+}
+]
+}
+}"""]
 
 
 
