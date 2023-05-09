@@ -3,6 +3,14 @@ from flask_cors import CORS, cross_origin
 import json
 import uuid
 from json import JSONDecoder, loads
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+SECRET_KEY = os.getenv("open_ai_key")
+print(SECRET_KEY, flush=True)
+
 
 app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -32,7 +40,7 @@ def add_uuid(comp):
         print(e)
     return comp    
 
-components = r"""Here is an example JSON for the checkout page JSX of a workout application:
+components = r"""Here is an example JSON for the JSX of a Tic Tac Toe game component in React Native:
 
 ```
 {
@@ -41,7 +49,8 @@ components = r"""Here is an example JSON for the checkout page JSX of a workout 
     "props": {
       "style": {
         "flex": 1,
-        "padding": 20
+        "justifyContent": "center",
+        "alignItems": "center"
       }
     },
     "children": [
@@ -51,113 +60,107 @@ components = r"""Here is an example JSON for the checkout page JSX of a workout 
           "style": {
             "fontSize": 24,
             "fontWeight": "bold",
-            "marginBottom": 10
-          }
-        },
-        "children": "Checkout"
-      },
-      {
-        "type": "View",
-        "props": {
-          "style": {
-            "borderWidth": 1,
-            "borderColor": "#ccc",
-            "padding": 10,
-            "marginBottom": 20
-          }
-        },
-        "children": [
-          {
-            "type": "Text",
-            "props": {
-              "style": {
-                "fontSize": 16
-              }
-            },
-            "children": "Total: $50"
-          }
-        ]
-      },
-      {
-        "type": "TextInput",
-        "props": {
-          "style": {
-            "borderWidth": 1,
-            "borderColor": "#ccc",
-            "padding": 10,
             "marginBottom": 20
           },
-          "placeholder": "Name on Card"
-        }
-      },
-      {
-        "type": "TextInput",
-        "props": {
-          "style": {
-            "borderWidth": 1,
-            "borderColor": "#ccc",
-            "padding": 10,
-            "marginBottom": 20
-          },
-          "placeholder": "Card Number"
+          "children": "Tic Tac Toe"
         }
       },
       {
         "type": "View",
         "props": {
           "style": {
-            "flexDirection": "row",
-            "justifyContent": "space-between"
+            "flexDirection": "row"
           }
         },
         "children": [
           {
-            "type": "TextInput",
+            "type": "View",
             "props": {
               "style": {
-                "borderWidth": 1,
-                "borderColor": "#ccc",
-                "padding": 10,
-                "width": "48%"
+                "borderWidth": 2,
+                "borderColor": "#000",
+                "width": 100,
+                "height": 100,
+                "alignItems": "center",
+                "justifyContent": "center"
               },
-              "placeholder": "Expiry Date"
+              "children": [
+                {
+                  "type": "Text",
+                  "props": {
+                    "style": {
+                      "fontSize": 50
+                    },
+                    "children": ""
+                  }
+                }
+              ]
             }
           },
           {
-            "type": "TextInput",
+            "type": "View",
             "props": {
               "style": {
-                "borderWidth": 1,
-                "borderColor": "#ccc",
-                "padding": 10,
-                "width": "48%"
+                "borderWidth": 2,
+                "borderColor": "#000",
+                "width": 100,
+                "height": 100,
+                "alignItems": "center",
+                "justifyContent": "center"
               },
-              "placeholder": "CVV"
+              "children": [
+                {
+                  "type": "Text",
+                  "props": {
+                    "style": {
+                      "fontSize": 50
+                    },
+                    "children": ""
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "View",
+            "props": {
+              "style": {
+                "borderWidth": 2,
+                "borderColor": "#000",
+                "width": 100,
+                "height": 100,
+                "alignItems": "center",
+                "justifyContent": "center"
+              },
+              "children": [
+                {
+                  "type": "Text",
+                  "props": {
+                    "style": {
+                      "fontSize": 50
+                    },
+                    "children": ""
+                  }
+                }
+              ]
             }
           }
         ]
       },
       {
-        "type": "TouchableOpacity",
+        "type": "View",
         "props": {
           "style": {
-            "backgroundColor": "#4CAF50",
-            "padding": 10,
-            "marginTop": 20,
-            "alignItems": "center"
-          },
-          "onPress": "submit"
+            "marginTop": 20
+          }
         },
         "children": [
           {
-            "type": "Text",
+            "type": "Button",
             "props": {
-              "style": {
-                "color": "#fff",
-                "fontWeight": "bold"
-              }
-            },
-            "children": "Place Order"
+              "title": "Reset",
+              "onPress": "() => {}"
+            }
           }
         ]
       }
@@ -166,7 +169,7 @@ components = r"""Here is an example JSON for the checkout page JSX of a workout 
 }
 ```
 
-Note that this is just an example and the actual JSX for a checkout page may vary depending on the specific requirements and design of the workout application."""
+Note that this is just an example and there are many ways to implement a Tic Tac Toe game in React Native."""
 
 
 
@@ -176,7 +179,6 @@ Note that this is just an example and the actual JSX for a checkout page may var
 def get_incomes():
     parseString = extract_json_objects(components)
     component = add_uuid(parseString["jsx"])
-    print(component, flush=True)
     return jsonify(component)
 
 
